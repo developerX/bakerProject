@@ -115,7 +115,7 @@ class App extends Component {
         </div>
         <div className="form-group">
           <button
-            className="btn btn-lg"
+            className="btn btn-lg btn-primary"
             onClick={this.handleSignUp}
             type="button">
             Sign Up
