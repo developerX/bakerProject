@@ -1,4 +1,4 @@
-#Baker Test Project
+# Baker Test Project
 
 Both projects are located in this project.
 
