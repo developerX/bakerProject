@@ -28,6 +28,7 @@ const personSchema = mongoose.Schema({
   lastName: String,
   email: String,
   phone: Number,
+  checkins: {type: Number, default: 0},
   points: { type: Number, default: 0 },
   newUser: { type: Boolean, default: true },
   updated: { type: Date, default: Date.now },
@@ -76,12 +77,13 @@ _.post('/users', async ctx => {
  * its a put request but doesn't actually update the entire object so should be a patch
  */
 _.put('/users/:id', async ctx => {
-  const { points, firstName, lastName } = ctx.request.query;
+  const { points, firstName, lastName, checkins } = ctx.request.query;
   const user = await Person.findByIdAndUpdate(
     ctx.params.id,
     {
       $set: {
         points,
+        checkins,
         firstName,
         lastName,
         newUser: false,

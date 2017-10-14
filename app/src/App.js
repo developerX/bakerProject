@@ -16,6 +16,7 @@ class App extends Component {
   //initial state
   state = {
     hasPhone: null,
+    checkins: 0,
     firstName: '',
     lastName: '',
     email: '',
@@ -175,6 +176,7 @@ class App extends Component {
       created,
       points,
       phone,
+      checkins,
       email,
       newUser
     } = this.state;
@@ -201,6 +203,12 @@ class App extends Component {
                 <li className="list-group-item">
                   <span className="badge">{points}</span>
                   Points:
+                </li>
+                <li className="list-group-item">
+                  Checkins:
+                  <span className="pull-right">
+                    {checkins}
+                  </span>
                 </li>
                 <li className="list-group-item">
                   Updated:
@@ -242,6 +250,7 @@ class App extends Component {
       newUser,
       firstName,
       lastName,
+      checkins,
       updated
     } = this.state;
 
@@ -254,6 +263,7 @@ class App extends Component {
 
     //going to be recycling this so lets set it once and be in sync
     points = newUser ? points+50 : points+20;
+    checkins = checkins+1;
 
     // same goes here
     updated = new Date();
@@ -265,6 +275,7 @@ class App extends Component {
       params: {
         firstName,
         lastName,
+        checkins,
         points,
         updated
       }
@@ -273,6 +284,7 @@ class App extends Component {
       this.setState({
         points,
         updated,
+        checkins,
         newUser: false
       });
     })
